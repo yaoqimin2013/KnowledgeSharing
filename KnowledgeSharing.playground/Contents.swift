@@ -128,34 +128,52 @@ print(quickAnswer!)
 
 // Implicitly Unwrapped Optionals
 
+let movieName: String? = "Transformers"
+let bestMovieName: String! = movieName
 
 
+let companyName: String! = "AirWatch" // also check if companyName is nil
+var myCompanyName = companyName
 
+if let name = companyName {
+   myCompanyName = companyName
+} else {
+    print("There is no company name")
+}
 
+// Error handling
 
+enum SomeErrors: ErrorType {
+    case BadAccess
+    case ConnectionFailure
+    case MacNotLikeThisUser
+}
 
+func checkDriverLicense(LicenseNumber number: Int) throws -> Bool {
+    
+    if number == 888 {
+        throw SomeErrors.MacNotLikeThisUser
+    }
+    print("This driver has passed license check")
+    return true
+}
 
+do {
+    try checkDriverLicense(LicenseNumber: 888)
+        
+} catch SomeErrors.MacNotLikeThisUser {
+    print("Failed to check license because Mac does not like this driver")
+}
 
+do {
+    try checkDriverLicense(LicenseNumber: 1000)
+    
+} catch {
+    print("Driver license check failed")
+}
 
+// Assertion
 
+let maxLoginAttempt = 5 // change this value, we can see the error message
+assert(maxLoginAttempt > 0, "Maximum login attempts should greater than 0")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// Basic Operators
