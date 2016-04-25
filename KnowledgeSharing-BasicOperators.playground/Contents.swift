@@ -23,6 +23,10 @@ let a = 5
 var b = 10
 b = a
 let (x, y) = (1, 2)
+print("x is \(x) and y is \(y)")
+
+let (height, weight, name) = (170, 180, "Qimin")
+print("\(name) is \(height) tall, and \(weight) pounds")
 
 // Arithmetic Operators
 
